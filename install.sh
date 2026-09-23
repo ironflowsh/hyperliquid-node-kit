@@ -122,7 +122,11 @@ else
   fi
   run install -o "$HL_USER" -g "$HL_USER" -m 0755 "$tmp/bin" "$BIN"
   rm -rf "$tmp"
-  echo "   signature OK"
+  if $DRY_RUN; then
+    echo "   [dry-run] signature check skipped"
+  else
+    echo "   signature OK"
+  fi
 fi
 
 # --- 6. Ops scripts and peers ---

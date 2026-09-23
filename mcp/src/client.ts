@@ -3,7 +3,7 @@
 // server rejects with 422 (allMids, l2Book, userFills, portfolio,
 // metaAndAssetCtxs) are left out on purpose: use the public API for those.
 
-export const DEFAULT_INFO_URL = "http://localhost:3001/info";
+export const DEFAULT_INFO_URL = "http://127.0.0.1:3001/info";
 const REQUEST_TIMEOUT_MS = 5_000;
 const ADDRESS_RE = /^0x[0-9a-fA-F]{40}$/;
 const DEX_RE = /^[a-z0-9]{1,16}$/;

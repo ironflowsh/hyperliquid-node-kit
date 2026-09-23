@@ -111,15 +111,15 @@ Claude Desktop (`claude_desktop_config.json`):
     "hlnode": {
       "command": "node",
       "args": ["/root/hlkit/mcp/dist/index.js"],
-      "env": { "HL_INFO_URL": "http://localhost:3001/info" }
+      "env": { "HL_INFO_URL": "http://127.0.0.1:3001/info" }
     }
   }
 }
 ```
 
-If the agent runs on another machine, reach the info server through an SSH tunnel (`ssh -L 3001:localhost:3001 your-node`). Port 3001 has no authentication, so do not open it to the internet.
+If the agent runs on another machine, reach the info server through an SSH tunnel (`ssh -L 3001:127.0.0.1:3001 your-node`). Port 3001 has no authentication, so do not open it to the internet.
 
-Env: `HL_INFO_URL` (default `http://localhost:3001/info`), `HL_MAX_LAG_SECONDS` (default 60, above it `node_health` reports `stale: true`).
+Env: `HL_INFO_URL` (default `http://127.0.0.1:3001/info`), `HL_MAX_LAG_SECONDS` (default 60, above it `node_health` reports `stale: true`).
 
 ## Troubleshooting
 

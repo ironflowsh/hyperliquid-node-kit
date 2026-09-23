@@ -35,7 +35,7 @@ HL_USER="${HL_USER:-hl}"
 HL_HOME="${HL_HOME:-/home/$HL_USER}"
 DATA_DIR="${DATA_DIR:-$HL_HOME/hl/data}"
 STATE_DIR="${STATE_DIR:-/var/lib/hlkit}"
-INFO_URL="${INFO_URL:-http://localhost:3001/info}"
+INFO_URL="${INFO_URL:-http://127.0.0.1:3001/info}"
 ALERT_WEBHOOK_URL="${ALERT_WEBHOOK_URL:-}"
 
 log() { echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) $*"; }

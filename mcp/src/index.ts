@@ -3,7 +3,7 @@
 // Hyperliquid node. It never signs or sends orders.
 //
 // Env:
-//   HL_INFO_URL            local info server (default http://localhost:3001/info)
+//   HL_INFO_URL            local info server (default http://127.0.0.1:3001/info)
 //   HL_MAX_LAG_SECONDS     node_health reports stale above this (default 60)
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
