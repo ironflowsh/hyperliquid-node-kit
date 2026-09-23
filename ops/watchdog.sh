@@ -53,13 +53,18 @@ if [ "$uptime" -lt "$STARTUP_GRACE" ]; then
   exit 0
 fi
 
-# State download in progress? These are the node's own log lines while it
-# fetches a state snapshot from a peer. grep -c instead of grep -q so the
-# pipe is never cut short under pipefail.
-downloading=$(journalctl -u "$UNIT" --since "-3min" --no-pager -o cat 2>/dev/null \
-  | grep -ciE 'abci_stream greeting|abci state|downloading' || true)
-if [ "${downloading:-0}" -gt 0 ]; then
-  log "state download in progress (${downloading} log lines in 3 min), skipping"
+# State download in progress? Only while the node is fetching a snapshot
+# does it print download progress ("reading bytes for abci_stream greeting")
+# and apply no blocks. A synced node also logs "abci state" lines when it
+# SENDS state to peers, so those must not count, or the watchdog would skip
+# every restart. grep -c instead of grep -q so the pipe is never cut short
+# under pipefail.
+recent=$(journalctl -u "$UNIT" --since "-3min" --no-pager -o cat 2>/dev/null || true)
+downloading=$(printf '%s\n' "$recent" \
+  | grep -ciE 'reading bytes for abci_stream greeting|(downloading|loading|deserializ).*abci' || true)
+applied=$(printf '%s\n' "$recent" | grep -ci 'applied block' || true)
+if [ "${downloading:-0}" -gt 0 ] && [ "${applied:-0}" -eq 0 ]; then
+  log "state download in progress (${downloading} progress lines, no applied blocks in 3 min), skipping"
   exit 0
 fi
 
