@@ -4,6 +4,8 @@ Scripts to install and run a Hyperliquid mainnet non-validator node on Ubuntu, p
 
 It is what we run on our own nodes, cut down to the parts that apply to any node. MIT licensed.
 
+Tested end to end on Ubuntu 24.04 against Hyperliquid mainnet (install, first sync, watchdog restart and 3-strike stop, cleanup, peer refresh, every MCP tool).
+
 ## What it installs
 
 - The node supervisor (visor) from `binaries.hyperliquid.xyz`, with its GPG signature checked against the key published in the [official node repo](https://github.com/hyperliquid-dex/node).
