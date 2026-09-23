@@ -17,7 +17,7 @@ The installer does not enable ufw for you. Enabling it before allowing SSH locks
 ## Requirements
 
 - Ubuntu 24.04. The official node README supports only this version. The installer warns on anything else.
-- 16 cores and 128 GB RAM. The node uses around 40 GB normally, and memory climbs fast under network stress. 64 GB gets tight.
+- 16 vCPUs (8 cores / 16 threads, high clock speed) and 128 GB RAM, as the official node README lists. The node uses around 40 GB normally, and memory climbs fast under network stress. 64 GB gets tight.
 - About 2 TB of NVMe. The node writes around 100 GB a day with default flags, and more with each `--write-*` flag. The cleanup timer keeps it bounded.
 - TCP 4001 and 4002 open to the internet. Peers deprioritize nodes they cannot reach.
 - A server close to the root peers syncs faster. Most of them are in Tokyo.
