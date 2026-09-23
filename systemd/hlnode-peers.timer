@@ -1,0 +1,10 @@
+[Unit]
+Description=Run hlnode-peers on a schedule
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=1800
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=Restart the Hyperliquid node when it falls behind
+
+[Service]
+Type=oneshot
+ExecStart=/opt/hlkit/ops/watchdog.sh

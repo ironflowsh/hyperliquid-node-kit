@@ -1,0 +1,6 @@
+[Unit]
+Description=Delete old Hyperliquid node output
+
+[Service]
+Type=oneshot
+ExecStart=/opt/hlkit/ops/cleanup.sh

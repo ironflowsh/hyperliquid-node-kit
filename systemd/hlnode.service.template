@@ -1,0 +1,22 @@
+# Written by install.sh. @HL_HOME@ and @HL_USER@ are filled in there.
+# The unit is called hlnode so no systemctl or journalctl command you type
+# contains the node's program names (see ops/lib.sh for why that matters).
+[Unit]
+Description=Hyperliquid non-validator node
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=@HL_USER@
+Group=@HL_USER@
+WorkingDirectory=@HL_HOME@
+Environment=HOME=@HL_HOME@
+EnvironmentFile=/etc/hlkit.env
+# $NODE_FLAGS (unbraced) is split on spaces by systemd.
+ExecStart=@HL_HOME@/hl-visor run-non-validator $NODE_FLAGS
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

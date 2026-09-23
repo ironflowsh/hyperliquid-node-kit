@@ -1,0 +1,11 @@
+[Unit]
+Description=Run hlnode-watchdog on a schedule
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=5min
+Persistent=true
+RandomizedDelaySec=0
+
+[Install]
+WantedBy=timers.target

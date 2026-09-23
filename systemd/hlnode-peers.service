@@ -1,0 +1,6 @@
+[Unit]
+Description=Refresh Hyperliquid root gossip peers
+
+[Service]
+Type=oneshot
+ExecStart=/opt/hlkit/ops/refresh-peers.sh
