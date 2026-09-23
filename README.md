@@ -128,7 +128,7 @@ https://ironflow.sh/guides/run-hyperliquid-node?utm_source=github&utm_campaign=h
 
 - Stuck downloading state, `early eof`, `abci_stream ... timed out`: peers too slow or too far. Run `ops/refresh-peers.sh`, check that 4001-4002 are open, and let it run without restarts.
 - `missing file: .../visor_abci_state.json` on the first start is normal. The node creates it after the first sync.
-- Falling behind while CPU is idle: usually the upstream peer, not the hardware. See the gossip section of the guide.
+- Falling behind while CPU is idle: the usual cause is a slow upstream peer. See the gossip section of the guide.
 
 ## Managed option
 
