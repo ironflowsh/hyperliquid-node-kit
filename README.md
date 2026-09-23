@@ -1,4 +1,4 @@
-# hlnode-kit
+# hyperliquid-node-kit
 
 Scripts to install and run a Hyperliquid mainnet non-validator node on Ubuntu, plus a read-only MCP server so an AI agent can read from your own node.
 
@@ -25,7 +25,7 @@ The installer does not enable ufw for you. Enabling it before allowing SSH locks
 ## Quick start
 
 ```bash
-git clone <this repo> /root/hlkit
+git clone https://github.com/ironflowsh/hyperliquid-node-kit /root/hlkit
 cd /root/hlkit
 sudo ./install.sh --dry-run   # print every step
 sudo ./install.sh
@@ -124,7 +124,7 @@ Env: `HL_INFO_URL` (default `http://localhost:3001/info`), `HL_MAX_LAG_SECONDS` 
 ## Troubleshooting
 
 The node guide lists the common log errors with causes and fixes:
-https://ironflow.sh/guides/run-hyperliquid-node?utm_source=github&utm_campaign=hl-node-kit#errors
+https://ironflow.sh/guides/run-hyperliquid-node?utm_source=github&utm_campaign=node-kit#errors
 
 - Stuck downloading state, `early eof`, `abci_stream ... timed out`: peers too slow or too far. Run `ops/refresh-peers.sh`, check that 4001-4002 are open, and let it run without restarts.
 - `missing file: .../visor_abci_state.json` on the first start is normal. The node creates it after the first sync.
@@ -133,7 +133,7 @@ https://ironflow.sh/guides/run-hyperliquid-node?utm_source=github&utm_campaign=h
 ## Managed option
 
 If you would rather not run it yourself, we run dedicated nodes in Tokyo with an indexed data layer on top:
-https://ironflow.sh/nodes?utm_source=github&utm_campaign=hl-node-kit
+https://ironflow.sh/nodes?utm_source=github&utm_campaign=node-kit
 
 ## License
 
